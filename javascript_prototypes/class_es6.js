@@ -1,32 +1,33 @@
 //SuperType constructor function
-function SuperType(firstName, lastName){
-	this.firstName = firstName;
-	this.lastName = lastName;
-	this.friends = ["Ashwin", "Jadeja"];
+class SuperType {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.friends = ["Ashwin", "Jadeja"];
+    }
+
+    getSuperName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
 }
 
-//SuperType prototype 
-SuperType.prototype.getSuperName = function(){
-	return this.firstName + " " + this.lastName;
-}
 
 //SubType prototype function
-function SubType(firstName, lastName, age){
-	//Inherit instance properties
-	SuperType.call(this, firstName, lastName);
-	this.age = age;
-}
+class SubType extends SuperType {
 
-//Inherit methods and shared properties
-SubType.prototype = new SuperType();
+    //Inherit instance properties
+    constructor(firstName, lastName, age) {
+        super(firstName, lastName);
+        this.age = age;
+    }
 
-//Add new property to SubType prototype
-SubType.prototype.getSubAge = function(){
-	return this.age;
+    getSubAge() {
+        return this.age;
+    }
 }
 
 //Create SubType objects
-var subTypeObj1= new SubType("Virat", "Kohli", 26);
+var subTypeObj1 = new SubType("Virat", "Kohli", 26);
 var subTypeObj2 = new SubType("Sachin", "Tendulkar", 39);
 
 //Modify the friends property using the subTypeObj1

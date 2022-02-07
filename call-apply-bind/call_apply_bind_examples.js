@@ -37,8 +37,7 @@ var pokemon = {
     firstname: 'Pika',
     lastname: 'Chu ',
     getPokeName: function() {
-        var fullname = this.firstname + ' ' + this.lastname;
-        return fullname;
+        return `${this.firstname} ${this.lastname}`;
     }
 };
 
